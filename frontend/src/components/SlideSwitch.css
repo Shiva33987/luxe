@@ -1,0 +1,72 @@
+.slide-switch-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #050505;
+  perspective: 1500px; /* Enable 3D space */
+}
+
+.slide-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity, filter;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* First slide starts fully visible, others start hidden via JS but let's set base */
+}
+
+/* Base styles so only first slide is initially normally positioned */
+.slide-panel:not(:first-child) {
+  opacity: 0;
+  visibility: hidden; /* Prevent interaction until GSAP reveals it */
+}
+
+.slide-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.8) 100%);
+}
+
+.slide-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--text-color);
+  transform: translateZ(50px); /* 3D pop out from image */
+}
+
+.slide-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.slide-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}

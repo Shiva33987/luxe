@@ -1,0 +1,290 @@
+.services-page {
+  background-color: #030303;
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Services Page Navigation */
+.services-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 250px;
+  padding: 0;
+}
+
+.services-nav-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 160px; /* Pre-shrunk logo size to match the home page */
+  pointer-events: none;
+  filter: drop-shadow(0px 10px 30px rgba(212, 175, 55, 0.4)) brightness(1.15) contrast(1.2);
+}
+
+.hero-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3vw;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.hero-nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.services-hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, #030303 60%);
+}
+
+.services-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.services-hero p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scroll-indicator span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.scroll-indicator .line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--accent-color), transparent);
+}
+
+/* Timeline Layout */
+.journey-timeline-container {
+  position: relative;
+  padding: 10rem 5vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.journey-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  perspective: 2000px;
+}
+
+.journey-row {
+  display: flex;
+  width: 100%;
+  z-index: 1;
+}
+
+.journey-row.left {
+  justify-content: flex-start;
+}
+
+.journey-row.right {
+  justify-content: flex-end;
+}
+
+/* Glassmorphism 3D Card */
+.journey-card {
+  width: 45%;
+  position: relative;
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  transform-style: preserve-3d;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.4s ease;
+}
+
+.journey-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.card-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: inset 0 0 30px rgba(212, 175, 55, 0);
+  transition: box-shadow 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.journey-card:hover .card-border-glow {
+  box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.journey-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+.journey-image-wrapper {
+  width: 85%;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.journey-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.journey-card:hover .journey-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.journey-content {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.journey-number {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: rgba(212, 175, 55, 0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.journey-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.journey-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #bbb;
+  margin-bottom: 2rem;
+}
+
+.book-btn {
+  background: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 0.8rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background: var(--accent-color);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .journey-card {
+    width: 100%;
+    margin-left: 40px;
+  }
+  
+  .journey-row.left, 
+  .journey-row.right {
+    justify-content: flex-start;
+  }
+}
